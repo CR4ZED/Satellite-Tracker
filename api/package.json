@@ -1,0 +1,16 @@
+{
+  "name": "satlink",
+  "version": "1.0.0",
+  "description": "this api consists of data related to satellites",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "ankush jha",
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^2.0.7"
+  }
+}

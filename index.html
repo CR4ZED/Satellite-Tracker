@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Satellite Tracker</title>
+    <script src="https://cesium.com/downloads/cesiumjs/releases/1.81/Build/Cesium/Cesium.js"></script>
+    <link
+      href="https://cesium.com/downloads/cesiumjs/releases/1.81/Build/Cesium/Widgets/widgets.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <div id="loader" class="show">
+      <img src="./loader.gif" alt="" />
+    </div> -->
+    <div class="custom">
+      <button id="search">
+        <i class="fas fa-search"></i>
+      </button>
+      <button id="live-feed">
+        <i class="fas fa-broadcast-tower"></i>
+      </button>
+      <button class="norad-list-btn">
+        <i class="fas fa-list"></i>
+      </button>
+      <button class="about-btn">
+        <i class="fas fa-info"></i>
+      </button>
+
+      <!-- filter box -->
+      <div class="filters">
+        <i class="fas fa-times" id="close-filters"></i>
+        <div class="search-grp">
+          <!-- search by norad id -->
+          <div class="form-ctrl">
+            <label for="norad">Norad</label>
+            <div class="norad-search">
+              <input
+                type="text"
+                name="norad"
+                id="norad"
+                placeholder="search by norad"
+              />
+              <button id="noradSearch">search</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- select a country -->
+        <div class="search-grp">
+          <div class="form-ctrl">
+            <label for="country">country</label>
+            <select name="country" id="country">
+              <option selected disabled>select a country</option>
+              <option value="all">All</option>
+            </select>
+          </div>
+          <!-- select an orbit -->
+          <div class="form-ctrl">
+            <label for="orbit">orbit</label>
+            <select name="orbit" id="orbit">
+              <option selected disabled>select an orbit</option>
+              <option value="all">All</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal for live feed-->
+      <div class="modal iss-live">
+        <div class="backdrop">
+          <div class="modal-container">
+            <i class="fas fa-times close-modal"></i>
+            <iframe
+              width="480"
+              height="270"
+              src="https://www.ustream.tv/embed/17074538"
+              scrolling="no"
+              allowfullscreen
+              webkitallowfullscreen
+              frameborder="0"
+              style="border: 0 none transparent"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+
+      <!-- modal for NORAD LIST-->
+      <div class="modal norad-list">
+        <div class="backdrop norad-backdrop hideTable">
+          <div class="modal-container">
+            <i class="fas fa-times close-norad hideTable"></i>
+            <div class="modal-content">
+              <h2>List of Norad ID</h2>
+              <table class="norad-table">
+                <thead>
+                  <th>NORAD ID</th>
+                  <th>Satellite Name</th>
+                </thead>
+                <tbody id="noradTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- about modal -->
+    <div class="modal about-modal">
+      <div class="backdrop about-backdrop close">
+        <div class="modal-container">
+          <i class="fas fa-times close-about close"></i>
+          <div class="modal-content">
+            <h2>About the project</h2>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus
+              quos facere asperiores hic non maxime?
+            </p>
+            <h2>Our Team</h2>
+            <ul class="team">
+              <li class="team-member">Ankush Jha (17MH1A0503)</li>
+              <li class="team-member">M.Ravi Teja (18MH5A0506)</li>
+              <li class="team-member">G.Suresh Reddy (17MH1A0520)</li>
+              <li class="team-member">G.Bharath (16MH1A0579)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- cesium container -->
+    <div id="cesiumContainer"></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/satellite.js/4.0.0/satellite.min.js"></script>
+    <script src="main.js"></script>
+    <script src="ui.js"></script>
+  </body>
+</html>
